@@ -1,0 +1,15 @@
+.title {
+  font-weight: bold;
+}
+
+.title--medium {
+  font-size: 36px;
+}
+
+.title--large {
+  font-size: 45px;
+}
+
+.title--giant {
+  font-size: 60px;
+}

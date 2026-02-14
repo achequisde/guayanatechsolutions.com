@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import HomeProduct from '@/components/HomeProduct.vue';
 import HomeService from '@/components/HomeService.vue';
 
 const services = [
@@ -15,6 +16,12 @@ const titles = [
   "our services",
   "our products",
 ].map((e) => e.toUpperCase());
+
+const products = [
+  { title: "Tecnology", src: "https://placehold.co/600x400", alt: "Placeholder image" },
+  { title: "Radios", src: "https://placehold.co/600x400", alt: "Placeholder image" },
+  { title: "Variable-frequency drives", src: "https://placehold.co/600x400", alt: "Placeholder image" },
+];
 
 </script>
 
@@ -54,8 +61,13 @@ const titles = [
       <button class="btn btn--primary">Contáctanos</button>
     </section>
 
-    <section>
+    <section class="products">
       <h2>{{ titles[2] }}</h2>
+      <div class="products__container">
+        <template v-for="product in products" :key="product.title">
+          <HomeProduct v-bind="product" />
+        </template>
+      </div>
     </section>
 
     <section>

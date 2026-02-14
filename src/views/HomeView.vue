@@ -47,7 +47,11 @@ const titles = [
     </section>
 
     <section>
-
+      <h2>
+        Contamos con un amplio catálogo de
+        Productos y Servicios para ti
+      </h2>
+      <button class="btn btn--primary">Contáctanos</button>
     </section>
 
     <section>

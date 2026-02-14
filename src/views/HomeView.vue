@@ -1,4 +1,14 @@
 <script setup lang="ts">
+import HomeService from '@/components/HomeService.vue';
+
+const services = [
+  { title: "Electrónica Industrial", text: "Reparación, mantenimiento y Suministros de equipos y tarjetas industriales, Instrumentación y control, sistema de riego." },
+  { title: "Radiocomunicaciones", text: "Suministro de radios, programación, servicio técnico y accesorios." },
+  { title: "Sistemas de seguridad, monitoreo y control", text: "Instalación de sistemas CCTV, control de acceso, alarmas y sensores, monitoreo a distancia." },
+  { title: "Equipos médicos", text: "Equipos de Imagenología, Odontología, Oftalmología, Laboratorio, Cardiología, Radiología, Cámaras, equipos de belleza y Spa." },
+  { title: "Diseño Electrónico y proyectos", text: "Diseño de circuitos y PCB para proyectos e investigaciones, simulaciones, suministro de componentes, programación." },
+  { title: "Variadores de frecuencia", text: "Servicio técnico, instalación y suministro de Variadores de Frecuencia VDF, arrancadores suaves y ATS, switches de transferencia automática." },
+];
 
 const titles = [
   "innovation, solutions, and efficiency",
@@ -26,8 +36,14 @@ const titles = [
       </div>
     </section>
 
-    <section>
+    <section class="services">
       <h2>{{ titles[1] }}</h2>
+
+      <div class="services__container">
+        <template v-for="service in services" :key="service.title">
+          <HomeService v-bind="service" />
+        </template>
+      </div>
     </section>
 
     <section>
@@ -66,5 +82,10 @@ const titles = [
 .btn--primary {
   color: white;
   background: #FF8300;
+}
+
+.services__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 </style>

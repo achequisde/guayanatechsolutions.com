@@ -7,6 +7,23 @@ const props = defineProps<{
 </script>
 
 <template>
-  <img :src="props.src" :alt="props.alt">
-  <h3>{{ props.title }}</h3>
+  <article>
+    <img :src="props.src" :alt="props.alt">
+    <h3 class="product-title title text-center">{{ props.title }}</h3>
+  </article>
 </template>
+
+<style scoped>
+article {
+  text-align: center;
+}
+
+.product-title {
+  margin-block-start: 2rem;
+}
+
+article>* {
+  margin-block: 0.5rem;
+  padding-inline: 0.5rem;
+}
+</style>

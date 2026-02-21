@@ -1,50 +1,83 @@
 <script setup lang="ts">
 import HomeProduct from '@/components/HomeProduct.vue';
 import HomeService from '@/components/HomeService.vue';
+import PageTitle from '@/components/PageTitle.vue';
 
 const services = [
-  { title: "Electrónica Industrial", text: "Reparación, mantenimiento y Suministros de equipos y tarjetas industriales, Instrumentación y control, sistema de riego." },
-  { title: "Radiocomunicaciones", text: "Suministro de radios, programación, servicio técnico y accesorios." },
-  { title: "Sistemas de seguridad, monitoreo y control", text: "Instalación de sistemas CCTV, control de acceso, alarmas y sensores, monitoreo a distancia." },
-  { title: "Equipos médicos", text: "Equipos de Imagenología, Odontología, Oftalmología, Laboratorio, Cardiología, Radiología, Cámaras, equipos de belleza y Spa." },
-  { title: "Diseño Electrónico y proyectos", text: "Diseño de circuitos y PCB para proyectos e investigaciones, simulaciones, suministro de componentes, programación." },
-  { title: "Variadores de frecuencia", text: "Servicio técnico, instalación y suministro de Variadores de Frecuencia VDF, arrancadores suaves y ATS, switches de transferencia automática." },
+  {
+    src: "src/assets/service_industry.svg",
+    title: "Industrial Electronics",
+    text: "Repairs, maintenance, and provision of industrial equipment and boards, I&C, irrigation systems, among others.",
+    href: "industrial-electronics",
+  },
+  {
+    src: "src/assets/service_radio.svg",
+    title: "Radiocommunications",
+    text: "Supply, programming, service, and accesories for radios.",
+    href: "radiocommunications",
+  },
+  {
+    src: "src/assets/service_camera.svg",
+    title: "Security, monitoring, and control systems",
+    text: "Installation of CCTV systems, access control, alarms, sensors, distance monitoring, among others.",
+    href: "security",
+  },
+  {
+    src: "src/assets/service_medic.svg",
+    title: "Medical equipment",
+    text: "Service for Imagenology, Odontology, Ophthalmology, Cardiology, and Radiograph equipment. Beauty and Spa appliances.",
+    href: "medical-equipment",
+  },
+  {
+    src: "src/assets/service_iot.svg",
+    title: "Electronic design and projects",
+    text: "Circuit and PCB design for projects and research. Simulation, programming, and supply of components",
+    href: "electronic-design",
+  },
+  {
+    src: "src/assets/service_varia.svg",
+    title: "Variable-frequency drives",
+    text: "Technical service, installation, and supply of Variable-frequency drives (VFD), soft starters, and automatic-transfer switches (ATS).",
+    href: "drives",
+  },
 ];
 
 const titles = [
   "innovation, solutions, and efficiency",
   "our services",
-  "our products",
+  "some of our products",
 ].map((e) => e.toUpperCase());
 
 const products = [
-  { title: "Tecnology", src: "https://placehold.co/600x400", alt: "Placeholder image" },
-  { title: "Radios", src: "https://placehold.co/600x400", alt: "Placeholder image" },
-  { title: "Variable-frequency drives", src: "https://placehold.co/600x400", alt: "Placeholder image" },
+  { title: "Tecnology", src: "src/assets/Productos-24.jpg", alt: "Placeholder image" },
+  { title: "Radios", src: "src/assets/Productos-11.jpg", alt: "Placeholder image" },
+  { title: "Variable-frequency drives", src: "src/assets/4variadores-34.jpg", alt: "Placeholder image" },
 ];
 
 </script>
 
 <template>
   <main>
-    <section>
-      <h1>{{ titles[0] }}</h1>
-    </section>
+    <PageTitle :title="titles[0]!" src="src/assets/circuito.png"></PageTitle>
 
-    <section class="welcome-message">
-      <div></div>
-      <div>
-        <h2>Guayana Tech Solutions</h2>
-        <p>
-          Somos una empresa especializada en Ingeniería Electrónica Industrial, con una amplia trayectoria en el área,
-          te invitamos a conocer más sobre nosotros y lo que tenemos para ti.
-        </p>
-        <button class="btn btn--primary">Read more</button>
+    <section class="welcome-message ">
+      <div class="page-padding">
+        <div class="welcome-message__image">
+          <img width="400" height="400" src="@/assets/technician_working.jpg" alt="">
+        </div>
+        <div class="welcome-message__text text-center">
+          <h2 class="title title--medium">Guayana Tech Solutions</h2>
+          <p>
+            We are a company focused on Electronic Engineering at the Industrial level, with a long history in the
+            business. Discover more about us and what we can offer you.
+          </p>
+          <button class="btn btn--primary">Read more</button>
+        </div>
       </div>
     </section>
 
-    <section class="services">
-      <h2>{{ titles[1] }}</h2>
+    <section class="services page-padding">
+      <h2 class="title title--large text-center">{{ titles[1] }}</h2>
 
       <div class="services__container">
         <template v-for="service in services" :key="service.title">
@@ -53,16 +86,17 @@ const products = [
       </div>
     </section>
 
-    <section>
-      <h2>
-        Contamos con un amplio catálogo de
-        Productos y Servicios para ti
-      </h2>
-      <button class="btn btn--primary">Contáctanos</button>
+    <section class="contact-us text-center">
+      <div class="contact-us__container page-padding">
+        <h2 class="title--large">
+          We got an ample list of Products and Services just for you
+        </h2>
+        <button class="btn btn--primary">Contact us</button>
+      </div>
     </section>
 
-    <section class="products">
-      <h2>{{ titles[2] }}</h2>
+    <section class="products page-padding">
+      <h2 class="title title--large text-center">{{ titles[2] }}</h2>
       <div class="products__container">
         <template v-for="product in products" :key="product.title">
           <HomeProduct v-bind="product" />
@@ -75,33 +109,123 @@ const products = [
   </main>
 </template>
 
-<style>
+<style scoped>
 .welcome-message {
-  display: grid;
-
-  grid-template-columns: 1fr 1fr;
+  margin-top: 6rem;
 }
 
-.welcome-message>* {
-  width: 50%;
+.welcome-message>div {
+  max-width: 90%;
+  margin-inline: auto;
 }
 
-.btn {
-  padding: 10px 15px;
-  font-weight: bold;
-
-  border: 0px;
-
-  border-radius: 25px;
+.welcome-message .title {
+  margin-block-end: 0;
 }
 
-.btn--primary {
-  color: white;
-  background: #FF8300;
+.welcome-message__image {
+  margin-block-end: 2rem;
+}
+
+.welcome-message__text>* {
+  margin-block: 0.5rem;
+}
+
+.page-padding {
+  padding: 2rem;
+  max-width: 80vw;
+  margin-inline: auto;
 }
 
 .services__container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+
+  gap: 1rem;
+}
+
+.title {
+  margin-block-end: 2rem;
+}
+
+.contact-us {
+  background-image: url('@/assets/joven_inventora.jpg');
+  background-attachment: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+
+  position: relative;
+  z-index: 1;
+
+  margin-block: 2.5rem;
+}
+
+.contact-us h2 {
+  font-size: 60px;
+}
+
+.contact-us::after {
+  background: linear-gradient(180deg, #00DAC500 0%, #0FA098 0%);
+  position: absolute;
+  content: '';
+
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.contact-us__container>* {
+  margin: 0.75rem;
+}
+
+.products__container {
+  display: grid;
+  gap: 1rem;
+}
+
+.products {
+  margin-block-end: 5rem;
+}
+
+@media (min-width: 1024px) {
+  .page-padding {
+    max-width: 1024px;
+  }
+
+  .welcome-message>div {
+    display: flex;
+    max-width: 70%;
+
+    justify-content: center;
+    align-items: center;
+
+    column-gap: 2rem;
+  }
+
+  .welcome-message__image {
+    flex: 1 1 200px;
+  }
+
+  .welcome-message__text {
+    flex: 2 1 100px;
+  }
+
+  .services__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .contact-us__container {
+    max-width: 50%;
+  }
+
+  .products__container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 </style>

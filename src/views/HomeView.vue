@@ -3,6 +3,12 @@ import HomeProduct from '@/components/HomeProduct.vue';
 import HomeService from '@/components/HomeService.vue';
 import PageTitle from '@/components/PageTitle.vue';
 
+import { nextTick, onMounted } from 'vue';
+
+onMounted(() => {
+  nextTick(() => window?.document?.body.scrollIntoView())
+})
+
 const services = [
   {
     src: "src/assets/service_industry.svg",
@@ -71,7 +77,9 @@ const products = [
             We are a company focused on Electronic Engineering at the Industrial level, with a long history in the
             business. Discover more about us and what we can offer you.
           </p>
-          <button class="btn btn--primary">Read more</button>
+          <button class="btn btn--primary">
+            <RouterLink to="/about">Read more</RouterLink>
+          </button>
         </div>
       </div>
     </section>
@@ -91,7 +99,8 @@ const products = [
         <h2 class="title--large">
           We got an ample list of Products and Services just for you
         </h2>
-        <button class="btn btn--primary">Contact us</button>
+        <button class="btn btn--primary btn--large"><a href="mailto:admin@guayanatechsolutions.com">Contact
+            us</a></button>
       </div>
     </section>
 

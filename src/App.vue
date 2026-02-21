@@ -29,14 +29,14 @@ const links = [
     <h2 class="title">GUAYANA TECH SOLUTIONS</h2>
     <nav>
       <ul>
-        <li>Home</li>
-        <li>About</li>
-        <li>Services</li>
+        <li v-for="link in links" :key="link.id">
+          <RouterLink :to="link.src">{{ link.label }}</RouterLink>
+        </li>
       </ul>
     </nav>
     <address>Av. 1, C.C. Ipeca, Urb. Unare II, Puerto Ordaz</address>
     <p>
-      <a href="">admin@guayanatechsolutions.com</a>
+      <a href="mailto:admin@guayanatechsolutions.com">admin@guayanatechsolutions.com</a>
     </p>
   </footer>
 </template>

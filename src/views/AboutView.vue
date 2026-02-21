@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import PageTitle from '@/components/PageTitle.vue';
+import { nextTick, onMounted } from 'vue';
 
+onMounted(() => {
+  nextTick(() => window?.document?.body.scrollIntoView())
+})
 </script>
 
 <template>
@@ -12,28 +16,24 @@ import PageTitle from '@/components/PageTitle.vue';
         <h2 class="title text-center title--large">Our company</h2>
 
         <p>
-          Con el propósito de impulsar el crecimiento sustentable en la industria nacional, sin depender de industrias
-          extranjeras, nace la empresa Corporación Tecnológica de Guayana (CTG) en el 2015 desde la ciudad de Puerto
-          Ordaz, estado Bolívar, Venezuela. Creada por Ingenieros electrónicos egresados de la Universidad Nacional
-          Experimental Politécnica Antonio José de Sucre (UNEXPO), Vicerrectorado Puerto Ordaz. Desarrollada en un
-          principio como una iniciativa ante la migración de empresas venezolanas que atienden sistemas de control
-          industrial como PLC, variadores de frecuencia, arrancadores suaves y balanzas.
+          With the goal of promoting sustenable growth within the national industry, without external dependencies,
+          Guayana Tech Solutions is born in 2015. Founded by Electronic Engineers from the Universidad Nacional
+          Experimental Politécnica Antonio José de Sucre (UNEXPO) Vicerrectorado Puerto Ordaz, it came as an answer to
+          the migration of companies that tended to industrial control systems such as PLC, variable-frequency drives,
+          soft starters, and scales.
         </p>
         <p>
-          Nuestros objetivos se basan en dar paso a acciones que involucren equipos de trabajo bien integrados,
-          cohesivos, comprometidos, capacitados y formados que desempeñen sus funciones en pro de su entorno social y
-          empresarial.
+          Our objectives are based on giving away to actions that well-integrated, cohesive, commited, and trained work
+          teams that perform their functions in favor of our social and business environment.
         </p>
         <p>
-          En más de dos años nos formamos como una empresa destinada desde control de motores, hasta convertirnos en una
-          empresa de íntegro desempeño en automatización industrial por PLC's, accionamientos automatizados por Servo
-          Drives y Servo motores, variadores de frecuencia y Switch automáticos de frecuencia, desarrolladora de
-          software para móviles y Páginas web, radiocomunicaciones móviles, servicios de calibración de balanzas
-          dinámicas y estáticas.
+          After more than five years in the business we have become a company with much expertise in industrial
+          automatization via PLCs, automatic drives, variable-frequency drives, and automatic switchs, as well as
+          software development for mobile and web pages, radiocommunications, and dynamic and static scales calibration.
         </p>
         <p>
-          Contamos con especialistas en cada área, para maximizar la eficiencia y calidad a nuestro usuario final y
-          lograr mantener una relación de calidad con nuestros clientes.
+          We have specialists for each area that we work with so as to improve the efficiency and quality of the work we
+          do for our clients, making sure our relationship with them is rock solid.
         </p>
       </section>
       <div class="details">

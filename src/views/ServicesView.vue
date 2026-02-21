@@ -15,6 +15,8 @@ onMounted(() => {
   const section = router.currentRoute.value.hash.replace("#", "")
   if (section) {
     nextTick(() => window?.document?.getElementById(section)?.scrollIntoView())
+  } else {
+    nextTick(() => window?.document?.body.scrollIntoView())
   }
 })
 
@@ -90,7 +92,7 @@ onMounted(() => {
           Contact and share your idea or need with us and with great confidentiality our team of engineers will be able
           to guide you thanks to our experience in designing electronic circuits for many applications.
         </p>
-        <button class="btn btn--primary">Contact us</button>
+        <button class="btn btn--primary"><a href="mailto:admin@guayanatechsolutions.com">Contact us</a></button>
       </div>
     </section>
 
